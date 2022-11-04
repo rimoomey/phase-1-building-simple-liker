@@ -13,6 +13,8 @@ hearts.forEach(heart => {
     mimicServerCall()
     .then(() => {
       heart.classList.toggle('activated-heart');
+      if (heart.textContent === FULL_HEART) {heart.textContent = EMPTY_HEART}
+      else {heart.textContent = FULL_HEART}
     })
     .catch(() => {
       errorBanner.classList.remove('hidden');

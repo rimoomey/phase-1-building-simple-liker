@@ -4,6 +4,24 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
+console.log(document.querySelector('#modal'))
+
+let hearts = document.querySelectorAll('span.like-glyph')
+hearts.forEach(heart => {
+  heart.addEventListener('click', () => {
+    errorBanner = document.querySelector('#modal');
+    mimicServerCall()
+    .then(() => {
+      heart.classList.toggle('activated-heart');
+    })
+    .catch(() => {
+      errorBanner.classList.remove('hidden');
+      setTimeout(() => {
+        errorBanner.classList.add('hidden')
+      }, 3000)
+    })
+  })
+})
 
 
 
